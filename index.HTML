@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Raiha! 🪷</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --soft-pink: #ffdae0;
+            --deep-rose: #ff85a1;
+            --ethereal-gold: #d4af37;
+            --mint: #e0f2f1;
+            --dark-text: #4a4a4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #fce4ec 100%);
+            color: var(--dark-text);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Flower Particles Layer */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        /* Intro Screen */
+        .intro-screen {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: white;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .lotus-loader {
+            font-size: 80px;
+            animation: pulse 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 0px var(--deep-rose)); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 20px var(--deep-rose)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 0px var(--deep-rose)); }
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            color: var(--deep-rose);
+            margin-bottom: 10px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid white;
+            box-shadow: 0 10px 30px rgba(255, 133, 161, 0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: var(--deep-rose); }
+
+        .full-width { grid-column: span 2; }
+        
+        .special-titles {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #b06ab3;
+            margin-bottom: 15px;
+        }
+
+        .skills-list {
+            list-style: none;
+            line-height: 2;
+        }
+
+        .skills-list li::before {
+            content: "✨ ";
+        }
+
+        .note-text {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            white-space: pre-line;
+            text-align: center;
+        }
+
+        .btn-enter {
+            margin-top: 20px;
+            padding: 15px 40px;
+            border: none;
+            background: var(--deep-rose);
+            color: white;
+            border-radius: 50px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            font-style: italic;
+            color: var(--deep-rose);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <div class="intro-screen" id="intro">
+        <div class="lotus-loader">🪷</div>
+        <h2 style="margin: 20px; font-family: 'Dancing Script'; font-size: 2rem;">A special wish for Raiha...</h2>
+        <button class="btn-enter" onclick="startMagic()">OPEN 🎀</button>
+    </div>
+
+    <div class="main-container" id="mainContent">
+        <div class="header">
+            <h1>Happy Birthday Raiha!</h1>
+            <p>🪷 🎀 🩷 🫀 ❤️</p>
+        </div>
+
+        <div class="bento-grid">
+            <div class="card full-width" style="text-align: center;">
+                <h2 class="special-titles">The Sweetest Soul! ✨🌙🪷</h2>
+                <p>THE ANGRYBIRD! 🦅 | THE PERSIAN CAT! 🐱</p>
+            </div>
+
+            <div class="card">
+                <h3 class="special-titles">Multitalented 💯</h3>
+                <ul class="skills-list">
+                    <li>Killing People 🔪</li>
+                    <li>Calligraphy 🖋️</li>
+                    <li>Cooking 🍳</li>
+                    <li>Therapist 🪷</li>
+                    <li>Doctor 🩺</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 class="special-titles">The Leader 💚</h3>
+                <p>Managing the Aastana & Being AC Saahiba 🌙</p>
+                <p style="margin-top: 15px; font-size: 0.9rem;">Thank you for being there whenever needed! 💎</p>
+            </div>
+
+            <div class="card full-width">
+                <p class="note-text">
+                    You are <strong>Pure Soul 🍃</strong>, don't let bad people and harsh realities of life effect you. Keep that cute innocent girl inside you. You are a Gem 💎.
+                    
+                    Keep it protected. Keep being Ethereal ✨
+                    
+                    Your kindness, support, and creativity make the world a better place. 🪻
+                </p>
+            </div>
+
+            <div class="card full-width" style="background: var(--mint); border: none;">
+                <p class="note-text" style="font-weight: 600;">
+                    May you get whatever you want, however you want, the way you want, wherever you want. 🌸✨✨🌙
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            Enjoy your Birthday AngryBird! 🪷🌙✨
+        </footer>
+    </div>
+
+    <script>
+        function createFlower() {
+            const container = document.getElementById('canvas-container');
+            const flowers = ['🪷', '🌸', '🌷', '🎀', '✨', '🍃', '🌻'];
+            const flower = document.createElement('div');
+            
+            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.position = 'fixed';
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.top = '-50px';
+            flower.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            flower.style.userSelect = 'none';
+            flower.style.zIndex = '1000';
+            flower.style.transition = `transform ${Math.random() * 3 + 2}s linear, opacity 2s`;
+            
+            container.appendChild(flower);
+
+            // Animate falling
+            setTimeout(() => {
+                flower.style.transform = `translateY(${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg)`;
+            }, 100);
+
+            // Remove after animation
+            setTimeout(() => {
+                flower.remove();
+            }, 5000);
+        }
+
+        function startMagic() {
+            // Hide intro
+            document.getElementById('intro').style.transform = 'translateY(-100%)';
+            
+            // Show content
+            const content = document.getElementById('mainContent');
+            content.style.opacity = '1';
+            content.style.transform = 'translateY(0)';
+
+            // Start intense flower fall
+            setInterval(createFlower, 150);
+        }
+
+        // Mouse follow effect for a few flowers
+        document.addEventListener('mousemove', (e) => {
+            if(Math.random() > 0.9) { // Only create sometimes to avoid lag
+                const trail = document.createElement('div');
+                trail.innerHTML = '✨';
+                trail.style.position = 'fixed';
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                trail.style.pointerEvents = 'none';
+                document.body.appendChild(trail);
+                
+                setTimeout(() => {
+                    trail.style.opacity = '0';
+                    trail.style.transform = 'translateY(20px)';
+                }, 100);
+                setTimeout(() => trail.remove(), 1000);
+            }
+        });
+    </script>
+</body>
+</html>
